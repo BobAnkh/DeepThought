@@ -191,12 +191,14 @@
   </a>
   {% endif %}
 
-  {% if config.generate_feed %}
-  <a class="has-text-rss" href="{{ config.base_url }}/{{ config.feed_filename }}" target="_blank">
-    <span class="icon is-large" title="RSS Feed">
-      <i class="fas fa-rss fa-lg"></i>
-    </span>
-  </a>
+  {% if config.generate_feeds %}
+    {% if "rss.xml" in config.feed_filenames %}
+    <a class="has-text-rss" href="{{ config.base_url }}/rss.xml" target="_blank">
+      <span class="icon is-large" title="RSS Feed">
+        <i class="fas fa-rss fa-lg"></i>
+      </span>
+    </a>
+    {% endif %}
   {% endif %}
 </p>
 {% endmacro %}
